@@ -1,3 +1,4 @@
+import { CreateTaskDto } from './dto/create-task.dto';
 import { Task, TaskStatus } from './task.model';
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable prettier/prettier */
@@ -14,7 +15,15 @@ export class TasksService {
         return this.tasks;
     } 
 
-    createTask(title: string, description: string): Task{
+    getTaskById(id: string): Task{
+
+        return this.tasks.find((task)=> task.id === id);
+
+    }
+
+    createTask(createTaskDto: CreateTaskDto): Task{
+
+        const { title, description } = createTaskDto;
 
         const task: Task = {
             id: v4(),
@@ -26,6 +35,13 @@ export class TasksService {
         this.tasks.push(task);
 
         return task;
+    }
+
+    deleteTask(id: string): string{
+        
+        this.tasks = this.tasks.filter((task)=> task.id !== id);
+
+        return "Deletado com sucesso"
     }
 
     
