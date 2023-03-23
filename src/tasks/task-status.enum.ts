@@ -2,13 +2,6 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
-export interface Task{
-    id: string,
-    title: string,
-    description: string,
-    status: TaskStatus
-}
-
 export enum TaskStatus {
     OPEN = 'OPEN',
     IN_PROGRESS = 'IN_PROGRESS',

@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { TaskStatus } from "./task-status.enum";
 
 /* eslint-disable prettier/prettier */
 @Entity()
@@ -10,5 +11,11 @@ export class Task {
 
     @Column()
     title: string
+
+    @Column()
+    description: string
+
+    @Column()
+    status: TaskStatus
     
 }
